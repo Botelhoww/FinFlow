@@ -22,6 +22,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import CreditCard from "../../components/CreditCard";
 
 const Dashboard: React.FC = () => {
   const mockTransactions = [
@@ -29,7 +30,6 @@ const Dashboard: React.FC = () => {
     { receiver: "ElectroMen Market", type: "Shopping", date: "14 Dec 2020", amount: 250.0 },
     { receiver: "Giorgio Restaurant", type: "Food", date: "07 Dec 2020", amount: 19.5 },
     { receiver: "John Mathew Kayne", type: "Sport", date: "06 Dec 2020", amount: 350.0 },
-    { receiver: "Ann Marlin", type: "Shopping", date: "31 Nov 2020", amount: 430.0 },
   ];
 
   const outcomeStatistics = [
@@ -76,7 +76,7 @@ const Dashboard: React.FC = () => {
           <Grid item xs={8}>
             <Card>
               <CardContent>
-                <Typography variant="h6" fontWeight="bold" mb={2}>
+                <Typography variant="h6" fontWeight="bold" mb={2} ml={1}>
                   Cards
                 </Typography>
                 <Box display="flex" alignItems="center" justifyContent="space-between">
@@ -85,23 +85,7 @@ const Dashboard: React.FC = () => {
                     <IconButton>
                       <ArrowBackIosIcon />
                     </IconButton>
-                    <Box
-                      sx={{
-                        width: "100%",
-                        height: "120px",
-                        backgroundColor: "grey.800",
-                        borderRadius: "12px",
-                        color: "white",
-                        p: 2,
-                        display: "flex",
-                        flexDirection: "column",
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <Typography variant="subtitle1">Credit Card</Typography>
-                      <Typography variant="body2">1234 5678 9012 3456</Typography>
-                      <Typography variant="caption">Name Surname</Typography>
-                    </Box>
+                      <CreditCard />
                     <IconButton>
                       <ArrowForwardIosIcon />
                     </IconButton>
@@ -113,7 +97,7 @@ const Dashboard: React.FC = () => {
                     flexItem
                     sx={{
                       mx: 2,
-                      height: "100px",
+                      height: "200px",
                       backgroundColor: "grey.300",
                     }}
                   />
