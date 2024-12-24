@@ -47,7 +47,6 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <Toolbar />
         {children}
       </Box>
     </Box>
