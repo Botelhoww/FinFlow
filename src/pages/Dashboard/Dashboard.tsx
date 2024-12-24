@@ -19,7 +19,6 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import Button from "../../components/Button";
 
 const Dashboard: React.FC = () => {
   const mockTransactions = [
