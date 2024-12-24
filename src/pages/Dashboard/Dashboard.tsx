@@ -19,6 +19,8 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const Dashboard: React.FC = () => {
   const mockTransactions = [
@@ -71,27 +73,46 @@ const Dashboard: React.FC = () => {
                   Cards
                 </Typography>
                 <Box display="flex" alignItems="center" justifyContent="space-between">
-                  {/* Simulação do Cartão */}
-                  <Box
-                    sx={{
-                      width: "60%",
-                      height: "120px",
-                      backgroundColor: "grey.800",
-                      borderRadius: "12px",
-                      color: "white",
-                      p: 2,
-                      display: "flex",
-                      flexDirection: "column",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <Typography variant="subtitle1">Credit Card</Typography>
-                    <Typography variant="body2">1234 5678 9012 3456</Typography>
-                    <Typography variant="caption">Name Surname</Typography>
+                  {/* Simulação do Cartão com Setas Laterais */}
+                  <Box display="flex" alignItems="center" width="60%">
+                    <IconButton>
+                      <ArrowBackIosIcon />
+                    </IconButton>
+                    <Box
+                      sx={{
+                        width: "100%",
+                        height: "120px",
+                        backgroundColor: "grey.800",
+                        borderRadius: "12px",
+                        color: "white",
+                        p: 2,
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Typography variant="subtitle1">Credit Card</Typography>
+                      <Typography variant="body2">1234 5678 9012 3456</Typography>
+                      <Typography variant="caption">Name Surname</Typography>
+                    </Box>
+                    <IconButton>
+                      <ArrowForwardIosIcon />
+                    </IconButton>
                   </Box>
 
-                  {/* Valores laterais */}
-                  <Box display="flex" flexDirection="column" alignItems="flex-end" ml={2}>
+                  {/* Divisor Vertical */}
+                  <Divider
+                    orientation="vertical"
+                    flexItem
+                    sx={{
+                      mx: 2,
+                      height: "100px",
+                      backgroundColor: "grey.300",
+                    }}
+                  />
+
+                  {/* Valores Laterais */}
+                  <Box display="flex" flexDirection="column" alignItems="flex-end">
                     <Typography
                       variant="h4"
                       fontWeight="bold"
@@ -120,7 +141,7 @@ const Dashboard: React.FC = () => {
                   <Box mt={1}>
                     <LinearProgress
                       variant="determinate"
-                      value={2850.75 / 4000 * 100}
+                      value={(2850.75 / 4000) * 100}
                       sx={{
                         height: 8,
                         borderRadius: 4,
