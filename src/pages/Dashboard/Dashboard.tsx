@@ -175,7 +175,6 @@ const Dashboard: React.FC = () => {
           </Grid>
         </Grid>
 
-
         {/* Transactions and Outcome Statistics */}
         <Grid container spacing={2}>
           <Grid item xs={8}>
