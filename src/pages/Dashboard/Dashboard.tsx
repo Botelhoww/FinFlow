@@ -14,6 +14,7 @@ import {
   LinearProgress,
   Switch,
   Divider,
+  Avatar,
 } from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -35,6 +36,12 @@ const Dashboard: React.FC = () => {
     { category: "Shopping", percentage: 52, color: "error.main" },
     { category: "Electronics", percentage: 21, color: "primary.main" },
     { category: "Travel", percentage: 74, color: "success.main" },
+  ];
+
+  const goals = [
+    { amount: "$550", date: "12/20/20", description: "Golf GTI" },
+    { amount: "$200", date: "12/20/20", description: "A45 AMG" },
+    { amount: "$820", date: "12/20/20", description: "RS3" },
   ];
 
   return (
@@ -171,6 +178,7 @@ const Dashboard: React.FC = () => {
           <Grid item xs={4}>
             <Card>
               <CardContent>
+                {/* Título com Ícone */}
                 <Box display="flex" justifyContent="flex-start" alignItems="center" mb={2}>
                   <Typography variant="h6" fontWeight="bold">
                     Goals
@@ -179,16 +187,41 @@ const Dashboard: React.FC = () => {
                     <AddCircleOutlineIcon />
                   </IconButton>
                 </Box>
-                <Box>
-                  <Typography variant="body2" fontWeight="bold" mb={1}>
-                    $550 - Holidays
-                  </Typography>
-                  <Typography variant="body2" fontWeight="bold" mb={1}>
-                    $200 - Renovation
-                  </Typography>
-                  <Typography variant="body2" fontWeight="bold">
-                    $820 - Xbox
-                  </Typography>
+
+                {/* Cartões de Metas */}
+                <Box display="flex" flexDirection="row" gap={3} overflow="auto">
+                  <IconButton>
+                      <ArrowBackIosIcon />
+                  </IconButton>
+                  {goals.map((goal, index) => (
+                    <Box
+                      key={index}
+                      sx={{
+                        width: "100px",
+                        height: "150px", // Aumente o height aqui
+                        backgroundColor: "grey.100",
+                        borderRadius: "12px",
+                        boxShadow: 1,
+                        p: 2,
+                        textAlign: "center",
+                      }}
+                    >
+                      <Typography variant="body2" fontWeight="bold">
+                        {goal.amount}
+                      </Typography>
+                      <Typography variant="caption" color="textSecondary">
+                        {goal.date}
+                      </Typography>
+                      <Box mt={1}>
+                        <Typography variant="body2" color="primary">
+                          {goal.description}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  ))}
+                  <IconButton>
+                      <ArrowForwardIosIcon />
+                  </IconButton>
                 </Box>
               </CardContent>
             </Card>
@@ -229,15 +262,35 @@ const Dashboard: React.FC = () => {
               Outcome Statistics
             </Typography>
             <Card>
-              <CardContent>
-                {outcomeStatistics.map((stat, index) => (
-                  <Box key={index} mb={2}>
-                    <Box display="flex" justifyContent="space-between" alignItems="center">
+            <CardContent>
+              <Typography variant="h6" fontWeight="bold" mb={2}>
+                Outcome Statistics
+              </Typography>
+              {outcomeStatistics.map((stat, index) => (
+                <Box key={index} display="flex" alignItems="center" mb={3}>
+                  {/* Ícone da categoria */}
+                  <Avatar
+                    sx={{
+                      bgcolor: stat.color,
+                      color: "white",
+                      width: 40,
+                      height: 40,
+                      mr: 2,
+                    }}
+                  >
+                    {stat.category[0]}
+                  </Avatar>
+                  {/* Informações da categoria */}
+                  <Box flexGrow={1}>
+                    <Box display="flex" justifyContent="space-between" alignItems="center" mb={1}>
                       <Typography variant="body2" fontWeight="bold">
                         {stat.category}
                       </Typography>
-                      <Typography variant="body2">{stat.percentage}%</Typography>
+                      <Typography variant="body2" fontWeight="bold">
+                        {stat.percentage}%
+                      </Typography>
                     </Box>
+                    {/* Barra de progresso */}
                     <LinearProgress
                       variant="determinate"
                       value={stat.percentage}
@@ -250,8 +303,9 @@ const Dashboard: React.FC = () => {
                       }}
                     />
                   </Box>
-                ))}
-              </CardContent>
+                </Box>
+              ))}
+            </CardContent>
             </Card>
           </Grid>
         </Grid>
